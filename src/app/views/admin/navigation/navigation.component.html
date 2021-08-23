@@ -18,13 +18,6 @@
       </a>
       <a
         mat-list-item
-        [routerLink]="['/admin/delete']"
-        routerLinkActive="router-link-active"
-      >
-        EliminarUsuario
-      </a>
-      <a
-        mat-list-item
         [routerLink]="['/admin/list']"
         routerLinkActive="router-link-active"
       >
@@ -43,7 +36,7 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Smartsoft-Test</span>
+      <app-header></app-header>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

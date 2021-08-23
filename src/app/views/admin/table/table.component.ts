@@ -1,30 +1,40 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { TableDataSource, TableItem } from './table-datasource';
+import { ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { UserInterface } from 'src/app/core/models/userInterface.model';
+import { StoreService } from '../../../core/services/store/store.service';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<TableItem>;
-  dataSource: TableDataSource;
-
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
-
-  constructor() {
-    this.dataSource = new TableDataSource();
+export class TableComponent implements OnInit {
+  displayedColumns: string[] = [
+    'company',
+    'firstName',
+    'lastName',
+    'country',
+    'city',
+    'accion',
+  ];
+  dataSource = new MatTableDataSource<UserInterface>();
+  constructor(
+    private storeService: StoreService,
+    private changeDetectorRefs: ChangeDetectorRef
+  ) {}
+  ngOnInit() {
+    this.refresh();
   }
-
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+  getAllUsers() {
+    this.dataSource = new MatTableDataSource(this.storeService.getAllUsers());
+  }
+  deleteUsers(id: string) {
+    this.storeService.deleteUser(id);
+    this.refresh();
+  }
+  refresh() {
+    this.getAllUsers();
+    this.changeDetectorRefs.detectChanges();
   }
 }

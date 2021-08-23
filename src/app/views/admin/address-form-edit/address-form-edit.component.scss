@@ -4,7 +4,10 @@
 
 .shipping-card {
   min-width: 120px;
-  margin: 20px auto;
+  margin: 1rem;
+  @media (min-width: 768px) {
+    margin: 3rem;
+  }
 }
 
 .mat-radio-button {

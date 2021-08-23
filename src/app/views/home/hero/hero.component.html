@@ -1,14 +1,4 @@
-<app-dashboard></app-dashboard>
+<app-header [admin]="true"></app-header>
 <div class="grid">
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+  <app-card *ngFor="let user of dataUsers" [user]="user"></app-card>
 </div>

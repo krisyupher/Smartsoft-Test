@@ -6,11 +6,17 @@ import { MaterialModule } from '../../Material/material.module';
 import { SharedModule } from '../../shared/shared.module';
 
 import { AddressFormComponent } from './address-form/address-form.component';
+import { AddressFormEditComponent } from './address-form-edit/address-form-edit.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TableComponent } from './table/table.component';
 
 @NgModule({
-  declarations: [AddressFormComponent, NavigationComponent, TableComponent],
+  declarations: [
+    AddressFormComponent,
+    NavigationComponent,
+    TableComponent,
+    AddressFormEditComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,

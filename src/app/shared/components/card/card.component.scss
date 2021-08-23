@@ -1,0 +1,20 @@
+:host {
+  .card {
+    width: 80%;
+    height: 300px;
+    text-align: center;
+    background: #242625;
+    border-radius: 10px;
+    box-shadow: 25px 25px 50px #1b1c1b, -25px -25px 50px #2d302f;
+    margin: auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 1s;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 10px 10px 25px #c4cec4, -10px -10px 25px #b0bdb9;
+    }
+  }
+}
