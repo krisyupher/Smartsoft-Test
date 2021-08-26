@@ -1,0 +1,62 @@
+:host {
+  .loginContainer {
+    background: url("../../../../assets/BackgroundMobile.jpg");
+    background-size: auto;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    @media (min-width: 768px) {
+      background: url("../../../../assets/Background.jpg");
+      background-size: cover;
+    }
+    mat-card {
+      max-width: 300px;
+      background-color: rgba(255, 255, 255, 0.699);
+      form {
+        mat-form-field {
+          width: 100%;
+        }
+      }
+      .LoginButton {
+        font-size: 1.2em;
+        padding: 0.5rem;
+        width: 100%;
+        letter-spacing: 0.05rem;
+        border-radius: 3px;
+        transition: opacity 0.3s;
+        font-family: "Cabin", sans-serif;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        background-color: #006bada1;
+      }
+      .visitorButton {
+        background-color: #e08b69be;
+      }
+    }
+    .visitorCard {
+      margin-top: 2rem;
+    }
+  }
+}
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}

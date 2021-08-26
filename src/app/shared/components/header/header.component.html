@@ -1,10 +1,15 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <nav>
-      <a mat-button routerLink="/product" routerLinkActive="active">
+<mat-toolbar color="primary" style="width: 100%">
+  <mat-toolbar-row style="width: 100%">
+    <div>
+      <a
+        mat-raised-button
+        matBadgeColor="warn"
+        [routerLink]="['/home']"
+        routerLinkActive="router-link-active"
+      >
         Smart soft
       </a>
-    </nav>
+    </div>
     <div *ngIf="admin">
       <a
         mat-raised-button
@@ -14,6 +19,27 @@
         style="margin-right: 1rem"
       >
         Soy Admin
+      </a>
+    </div>
+    <div *ngIf="admin">
+      <button
+        mat-raised-button
+        matBadgeColor="warn"
+        style="margin-right: 1rem"
+        (click)="logOut()"
+      >
+        Cerrar sesion
+      </button>
+    </div>
+    <div *ngIf="!admin">
+      <a
+        mat-raised-button
+        matBadgeColor="warn"
+        style="margin-right: 1rem"
+        [routerLink]="['/']"
+        routerLinkActive="router-link-active"
+      >
+        Iniciar sesion
       </a>
     </div>
   </mat-toolbar-row>

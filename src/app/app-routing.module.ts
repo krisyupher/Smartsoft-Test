@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './core/guard/admin.guard';
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('./views/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
     path: 'admin',
+    canActivate: [AdminGuard],
     loadChildren: () =>
       import('./views/admin/admin.module').then((m) => m.AdminModule),
   },
@@ -14,7 +21,7 @@ const routes: Routes = [
   {
     path: '**',
     pathMatch: 'full',
-    redirectTo: '/home',
+    redirectTo: '',
   },
 ];
 

@@ -1,0 +1,50 @@
+<div class="loginContainer">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle> usuario: user | contraseña=123456 </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="FormLogin" novalidate (ngSubmit)="login($event)">
+        <mat-form-field appearance="fill">
+          <mat-label>Usuario</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <button type="submit" class="LoginButton">LOGIN</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card visitorCard">
+    <mat-card-header>
+      <mat-card-title>Entrar como visitante</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <a
+        mat-raised-button
+        matBadgeColor="warn"
+        [routerLink]="['/home']"
+        routerLinkActive="router-link-active"
+        class="LoginButton visitorButton"
+      >
+        Visitante
+      </a>
+    </mat-card-content>
+  </mat-card>
+</div>
